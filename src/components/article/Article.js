@@ -31,21 +31,47 @@ function Article(props) {
 
     // Article Not Exist in DB
     if (!article) return <Error />
-    const  deletearticle =() =>{
-    article.delete(`/api/article/${name}`, function (req, res) {
-
-        // const id = req.body.id;  
-    
-        article.findOneAndDelete( `${name}`)
-            .then(function () {
-    
-                res.redirect('/article-list')
-    
-            })  
-    })
-}
 
 
+// const Deletearticle = () => {
+
+//     const { id } = useParams();
+//     const navigate = useNavigate();
+//     const delart = async () => {
+// 			const result = await axios.delete(
+// 				`/admin/article/${id}/delete`,
+// 				{
+// 					headers: {
+// 						"Content-Type": "application/json",
+// 					},
+// 				}
+// 			);
+// 			const body = await result.data;
+//             alert(body)
+//             navigate(`/article`);
+// 		};
+//     const donothing = ()=>{
+//         navigate(`/article/${id}`)
+//     }
+    
+// const editarticle = async (e) => {
+//     e.preventDefault();
+//     const newPost = {
+//         name: user,
+//         title: title,
+//         content: content,
+//     };
+
+//     try {
+//          const res=await axios.put(`/admin/article/${id}/edit`, {newPost, admin}, {
+//             headers: {
+//                 "Content-Type": "application/json",
+//             },
+//         });
+//         alert(res.data)
+//         if (res.data !== "No Empty Fields") navigate(`/article/${id}`);
+//     } catch (err) {}
+// };
     
 
     return (
@@ -54,8 +80,9 @@ function Article(props) {
             <UpvoteSection name={name} setarticleData={setarticleData} upvotes={articleData.upvotes} />
             <br></br> 
             <br></br>
-            <p className='desc'>{article.description}</p>
-            <button onClick={deletearticle} className='delete'>delete</button>
+            <p className='desc'>{article.description}</p> <br></br>
+            <button className='delete'>delete</button>
+            <button className='editbutton'>Edit</button>
             <Comments comments={articleData.comments} />
             <AddComments name={name} setarticleData={setarticleData} />
         </div>
