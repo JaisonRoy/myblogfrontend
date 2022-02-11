@@ -33,7 +33,7 @@ function Login(props) {
         //         console.error(error);
         //     });
         try {
-            const res = await axios.post(`http://192.168.1.4:5001/login`,{
+            const res = await axios.post(`http://localhost:5001/login`,{
                 email:username,
                 password:password
             } ,{
