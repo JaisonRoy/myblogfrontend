@@ -31,7 +31,7 @@ function Signup() {
     }
 
    const Signupapi = () =>{
-     let baseURL ='http://192.168.1.4:5001/api/signup'
+     let baseURL ='http://localhost:5001/api/signup'
     // fetch('https://blogapp5000.herokuapp.com/api/signup', {
     //     method: 'post',
     //     headers: { 'Content-Type': 'application/json' },
